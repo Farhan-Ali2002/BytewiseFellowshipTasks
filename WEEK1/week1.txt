@@ -1,0 +1,4 @@
+- Filled the Form as an intermediate
+- Revised Git concepts such as branches and (push,commit, add) Git and Github and also learned some new concepts such as tags and references.
+- Following Git Course on Coursera
+- Attended Onboarding session

@@ -1,3 +1,4 @@
+import 'package:firebase_week3/view/auth/login_with_phNo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../widgets/roundbutton.dart';
@@ -159,6 +160,29 @@ class _LoginScreenState extends State<LoginScreen> {
                             TextStyle(color: Color.fromARGB(255, 14, 103, 175)),
                       ))
                 ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginWithPhoneNumber()));
+                },
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.black)),
+                  child: const Center(
+                    child: Text(
+                      "Login with phone",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
               )
             ],
           ),

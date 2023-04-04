@@ -27,6 +27,9 @@ class _SignupState extends State<Signup> {
       setState(() {
         loading = false;
       });
+      utils().showToastMsg("Signup successfull! Redirecting....");
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const LoginScreen()));
     }).onError((error, stackTrace) {
       setState(() {
         loading = false;

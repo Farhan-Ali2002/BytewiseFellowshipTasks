@@ -1,0 +1,27 @@
+Learned about firebase
+- Firebase is a Backend-as-a-Service (BaaS) app development platform
+  that provides hosted backend services such as a realtime database,
+  cloud storage, authentication, crash reporting,machine learning, 
+  remote configuration, and hosting for your static files.
+
+- RealTime database means changes are synced automatically between multiple users.
+
+- Created a firebase project.
+
+- Created a new flutter project and configured and connected it with firebase project
+  by configuring build.gradle files
+
+- Made a login and Signup Screen.
+
+- Enabled login and signup with email,password and phone services on firebase.
+
+- Made login and signup screens functional
+
+- Created a post and ADDpost screen
+
+- Created a realtime database on firebase and made a node named post in addpost screen
+  which stores post's description and id
+
+- Fetched all the posts and displayed them on post screen with the help of firebase animated list
+
+- Used FlutterToast package to display errors and success on the screen.

@@ -1,0 +1,24 @@
+Expanded(
+              child: StreamBuilder(
+                  stream: ref.onValue,
+                  builder: (context, AsyncSnapshot<DatabaseEvent> snapshot) {
+                    if (!snapshot.hasData) {
+                      return const CircularProgressIndicator();
+                    } else {
+                      Map<dynamic, dynamic> map =
+                          snapshot.data!.snapshot.value as dynamic;
+
+                      List<dynamic> l = [];
+                      l.clear();
+                      l = map.values.toList();
+
+                      return ListView.builder(
+                          itemCount: snapshot.data!.snapshot.children.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              title: Text("${l[index]['description']}"),
+                              subtitle: Text("${l[index]['id']}"),
+                            );
+                          });
+                    }
+                  }))

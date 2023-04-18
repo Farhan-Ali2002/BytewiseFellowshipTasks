@@ -57,11 +57,10 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   setState(() {
                     loading = true;
                   });
-
-                  refdatabase
-                      .child(DateTime.now().millisecondsSinceEpoch.toString())
-                      .set({
-                    'id': DateTime.now().millisecondsSinceEpoch.toString(),
+                  final String id =
+                      DateTime.now().millisecondsSinceEpoch.toString();
+                  refdatabase.child(id).set({
+                    'id': id,
                     'description': addpostcontroller.text.toString()
                   }).then((value) {
                     setState(() {

@@ -9,8 +9,5 @@ class ClearAction extends Action<ClearIntent> {
   final TextEditingController clearController;
 
   @override
-  Object? invoke(covariant ClearIntent intent) {
-    clearController.clear();
-    return null;
-  }
+  void invoke(covariant ClearIntent intent) => clearController.clear();
 }

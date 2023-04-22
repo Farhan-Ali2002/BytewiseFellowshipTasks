@@ -38,6 +38,13 @@ class Home extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const LineChart()));
               },
             ),
+            ListTile(
+              title: const Text('Line chart'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const LineChart()));
+              },
+            ),
           ],
         ),
       ),

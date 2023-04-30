@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
 import 'dart:math' show Random;
 
-class MockData {
-  final double x;
-  final double y;
-  MockData(this.x, this.y);
-}
-
 final rng = Random();
 const dayCount = 50;
 
 class LineChartPainter extends CustomPainter {
+  final double dx;
+  final double dy;
+  final List<TweenSequenceItem> data;
+
+  @override
+  LineChartPainter({required this.dx, required this.dy, required this.data});
   @override
   void paint(Canvas canvas, Size size) {
-    final mock = List<MockData>.generate(dayCount, (index) {
-      final y = double.parse(index.toString());
-      final d = double.parse((index * 2).toString());
-      return MockData(y, d);
-    });
-
     final axisPaint = Paint()
       ..color = Colors.black
       ..strokeWidth = 2
@@ -35,9 +29,9 @@ class LineChartPainter extends CustomPainter {
       ..lineTo(size.width, size.height);
     canvas.drawPath(axisPath, axisPaint);
 
-    final dataPath = Path()..moveTo(size.width, 0);
-    for (var dataPoint in mock) {
-      dataPath.lineTo(dataPoint.x, dataPoint.y);
+    final dataPath = Path()..moveTo(20, 20);
+    for (var dataPoint in data) {
+      dataPath.lineTo(dx, dy);
     }
 
     canvas.drawPath(dataPath, dataPaint);
@@ -45,6 +39,6 @@ class LineChartPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
+    return false;
   }
 }

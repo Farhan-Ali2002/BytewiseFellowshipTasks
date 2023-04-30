@@ -122,6 +122,9 @@ class _CircularState extends State<Circular> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Circular animation"),
+      ),
       backgroundColor: const Color.fromARGB(255, 51, 47, 47),
       body: SafeArea(
         child: Center(
@@ -146,11 +149,8 @@ class _CircularState extends State<Circular> with TickerProviderStateMixin {
                                   clipper: const HalfCircleClipper(
                                       side: CircleSide.left),
                                   child: Container(
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            width: 4, color: Colors.white),
-                                        color: const Color.fromARGB(
-                                            255, 161, 19, 9)),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 161, 19, 9)),
                                     width: 100,
                                     height: 100,
                                   ),
@@ -170,11 +170,9 @@ class _CircularState extends State<Circular> with TickerProviderStateMixin {
                                   child: Container(
                                     width: 100,
                                     height: 100,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            255, 12, 67, 112),
-                                        border: Border.all(
-                                            width: 4, color: Colors.white)),
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 12, 67, 112),
+                                    ),
                                   ),
                                 ),
                               );

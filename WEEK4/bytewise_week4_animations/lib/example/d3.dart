@@ -48,6 +48,9 @@ class _ThreeDState extends State<ThreeD> with TickerProviderStateMixin {
       ..reset()
       ..repeat();
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("3D animation"),
+      ),
       body: Column(
         children: [
           const SizedBox(height: 200, width: double.infinity),

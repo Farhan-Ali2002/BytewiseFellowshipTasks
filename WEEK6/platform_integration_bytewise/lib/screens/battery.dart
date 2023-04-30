@@ -30,6 +30,7 @@ class _BatteryState extends State<Battery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("Battery")),
       body: Container(
         child: Center(
           child: Column(
@@ -44,7 +45,13 @@ class _BatteryState extends State<Battery> {
                 onPressed: _getBatteryLevel,
                 child: const Text('Get Battery Level'),
               ),
-              Text(_batteryLevel),
+              Text(
+                _batteryLevel,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         ),

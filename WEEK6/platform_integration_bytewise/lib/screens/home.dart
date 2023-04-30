@@ -11,7 +11,8 @@ class MyHome extends StatelessWidget {
           child: ListView(
         children: [
           ListTile(
-            title: const Text("Battery"),
+            style: ListTileStyle.drawer,
+            title: const Text("Android Battery"),
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Battery()));

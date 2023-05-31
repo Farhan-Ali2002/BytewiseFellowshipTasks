@@ -1,1 +1,1 @@
-const int webScreen = 600;
+const int webScreenSize = 600;

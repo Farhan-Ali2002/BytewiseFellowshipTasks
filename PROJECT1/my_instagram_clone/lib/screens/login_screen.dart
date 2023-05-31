@@ -3,6 +3,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_instagram_clone/utils/colors.dart';
 import '../widgets/text_field_input.dart';
 import './signup_screen.dart';
+import '../responsive/responsive_layout_screen.dart';
+import '../responsive/mobile_screen_layout.dart';
+import '../responsive/webs_screen_layout.dart';
+import 'package:my_instagram_clone/resources/auth_method.dart';
+import '../utils/utils.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,10 +19,34 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
+
+  bool _isLoading = false;
   @override
   void dispose() {
     _emailController.dispose();
     _passController.dispose();
+  }
+
+  void loginUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String res = await AuthMethods().loginUser(
+        email: _emailController.text, password: _passController.text);
+    if (res == 'success') {
+      setState(() {
+        _isLoading = false;
+      });
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const ResponsiveLayout(
+              mobileViewWidget: MobileViewWidget(),
+              webViewWidget: WebViewWidget())));
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+      showSnackBar(context, res);
+    }
   }
 
   @override
@@ -55,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 24,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: loginUser,
                   child: Container(
                     alignment: Alignment.center,
                     width: double.infinity,
@@ -65,7 +94,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         shape: RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(4)))),
-                    child: const Text("Log in"),
+                    child: !_isLoading
+                        ? const Text(
+                            'Log in',
+                          )
+                        : const CircularProgressIndicator(
+                            color: primaryColor,
+                          ),
                   ),
                 ),
                 Flexible(
